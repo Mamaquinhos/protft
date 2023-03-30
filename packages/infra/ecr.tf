@@ -1,5 +1,5 @@
 resource "aws_ecr_repository" "ptft_ecr" {
-  name                 = "ptft-ecr"
+  name                 = "${local.project_name}-ecr"
   image_tag_mutability = "MUTABLE"
 
   image_scanning_configuration {

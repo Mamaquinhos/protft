@@ -1,5 +1,5 @@
 resource "aws_security_group" "ptft_alb_sec_group" {
-  name   = "ptft-alb-sec-group"
+  name   = "${local.project_name}-alb-sec-group"
   vpc_id = aws_vpc.ptft_vpc.id
 
   ingress {
@@ -28,7 +28,7 @@ resource "aws_security_group" "ptft_alb_sec_group" {
 }
 
 resource "aws_security_group" "ptft_ecs_sec_group" {
-  name   = "ptft-ecs-sec-group"
+  name   = "${local.project_name}-ecs-sec-group"
   vpc_id = aws_vpc.ptft_vpc.id
 
   ingress {
@@ -48,7 +48,7 @@ resource "aws_security_group" "ptft_ecs_sec_group" {
 }
 
 resource "aws_security_group" "ptft_rds_sec_group" {
-  name   = "ptft-rds-sec-group"
+  name   = "${local.project_name}-rds-sec-group"
   vpc_id = aws_vpc.ptft_vpc.id
 
   ingress {

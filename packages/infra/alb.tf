@@ -1,5 +1,5 @@
 resource "aws_lb" "ptft_lb" {
-  name               = "ptft-alb"
+  name               = "${local.project_name}-alb"
   internal           = false
   load_balancer_type = "application"
   security_groups    = ["${aws_security_group.ptft_alb_sec_group.id}"]
@@ -9,7 +9,7 @@ resource "aws_lb" "ptft_lb" {
 }
 
 resource "aws_alb_target_group" "ptft_tg" {
-  name        = "ptft-tg"
+  name        = "${local.project_name}-tg"
   port        = 80
   protocol    = "HTTP"
   vpc_id      = aws_vpc.ptft_vpc.id
